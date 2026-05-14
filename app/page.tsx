@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import Link from 'next/link'
+import VoteButtons from './components/VoteButtons'
 
 export const revalidate = 60
 
@@ -137,19 +138,22 @@ export default async function HomePage() {
               gap: '1rem',
             }}
           >
-            <span style={{ fontSize: '1.05rem' }}>
+            <span style={{ fontSize: '1.05rem', flex: 1 }}>
               {c.content ?? '(no content)'}
             </span>
-            <span
-              style={{
-                whiteSpace: 'nowrap',
-                fontVariantNumeric: 'tabular-nums',
-                color: '#444',
-                fontSize: '0.9rem',
-              }}
-            >
-              ♥ {c.like_count}
-            </span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <span
+                style={{
+                  whiteSpace: 'nowrap',
+                  fontVariantNumeric: 'tabular-nums',
+                  color: '#444',
+                  fontSize: '0.9rem',
+                }}
+              >
+                ♥ {c.like_count}
+              </span>
+              <VoteButtons captionId={c.id} userId={user.id} />
+            </div>
           </li>
         ))}
       </ul>
