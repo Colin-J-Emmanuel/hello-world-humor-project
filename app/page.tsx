@@ -89,13 +89,21 @@ export default async function HomePage() {
           marginBottom: '1.5rem',
         }}
       >
-        <div>
-          <h1 style={{ marginBottom: '0.25rem' }}>Top Captions</h1>
-          <p style={{ color: '#666', margin: 0 }}>
-            {captions.length} captions, ranked by likes.
-          </p>
-        </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <Link
+            href="/upload"
+            style={{
+              padding: '0.4rem 0.75rem',
+              fontSize: '0.85rem',
+              borderRadius: 6,
+              border: '1px solid #ccc',
+              background: '#fff',
+              color: '#111',
+              textDecoration: 'none',
+            }}
+          >
+            Upload image
+          </Link>
           <span style={{ fontSize: '0.9rem', color: '#666' }}>
             {user.email}
           </span>
